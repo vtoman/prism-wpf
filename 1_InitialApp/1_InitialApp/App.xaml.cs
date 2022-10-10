@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using _1_InitialApp.Views;
+using Prism.DryIoc;
+using Prism.Ioc;
+using System;
 using System.Windows;
 
 namespace _1_InitialApp
@@ -11,7 +9,16 @@ namespace _1_InitialApp
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
+        protected override Window CreateShell()
+        {
+            return Container.Resolve<ShellWindow>();
+        }
+
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            
+        }
     }
 }
